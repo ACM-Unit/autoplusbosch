@@ -1,21 +1,28 @@
-<th:block th:fragment="slider" th:remove="tag" xmlns:th="http://www.w3.org/1999/xhtml"
+<th:block th:fragment="slider" xmlns:th="http://www.w3.org/1999/xhtml"
           xmlns:v-bind="http://www.w3.org/1999/xhtml">
     <div id="home">
         <!-- container -->
-        <div class="container">
+        <div class="container container-fluid">
+
             <!-- home wrap -->
             <div class="home-wrap">
                 <!-- home slick -->
                 <div id="home-slick">
                     <!-- banner -->
-                    <div class="banner banner-1" v-for="banner in banners">
-                        <img v-bind:src="banner.image" alt="">
-                        <div class="banner-caption text-center">
-                            <h1>{{banner.textH}}</h1>
-                            <h3 class="white-color font-weak">{{banner.text}}</h3>
-                            <button class="primary-btn">{{banner.button}}</button>
-                        </div>
-                    </div>
+                    <slider animation="fade"><p style="line-height: 280px; font-size: 5rem; text-align: center;"
+                                                v-if="!banners.length">Loading...</p>
+                        <slider-item  v-for="banner in banners" :key="banner.image">
+                            <div class="banner banner-1">
+                                <img v-bind:src="banner.image" alt="">
+                                <div class="banner-caption text-center">
+                                    <h1>{{banner.textH}}</h1>
+                                    <h3 class="white-color font-weak">{{banner.text}}</h3>
+                                    <button class="primary-btn">{{banner.button}}</button>
+                                </div>
+                            </div>
+                        </slider-item>
+                    </slider>
+                    <div class="redline"></div>
                     <!-- /banner -->
                 </div>
                 <!-- /home slick -->
@@ -23,13 +30,11 @@
             <!-- /home wrap -->
         </div>
         <!-- /container -->
-        <script th:inline="javascript">
-            var banners = [
-                        {image: "../../static/img/slide01.jpg", textH: "Car service", text: "Up to 50% Discount", button: "Shop Now" },
-                        {image: "../../static/img/banner02.jpg", textH: "HOT DEAL", text: "Up to 50% OFF", button: "Shop Now" },
-                        {image: "../../static/img/banner03.jpg", textH: "New Product", text: "Collection", button: "Shop Now" }
-                    ];
-        </script>
     </div>
 
+<style>
+    .btn{
+        z-index: 900;
+    }
+</style>
 </th:block>

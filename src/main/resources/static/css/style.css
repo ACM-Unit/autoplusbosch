@@ -65,6 +65,7 @@ body {
   color: #4A4E5A;
   overflow-x: hidden;
   background-color: lightgrey;
+
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -312,6 +313,7 @@ textarea.input {
   padding-top: 15px;
   padding-bottom: 15px;
   background-color: white;
+
 }
 
 /*----------------------------*\
@@ -468,6 +470,11 @@ textarea.input {
     height: 3px;
     width: 100%;
 }
+.redline {
+  background-color: red;
+  height: 3px;
+  width: 100%;
+}
 /*=========================================================
 	03 -> NAVIGATION
 ===========================================================*/
@@ -475,6 +482,7 @@ textarea.input {
 #navigation {
 	background-color: darkgray;
 background-size: 100%; /* Современные браузеры */
+
 }
 
 #navigation .container {
@@ -487,16 +495,17 @@ background-size: 100%; /* Современные браузеры */
 
 .category-nav {
   float: left;
-  width: 270px;
+  width: 320px;
 }
 
 .category-nav .category-header {
-  padding: 15px;
+  padding: 10px;
   display: block;
   text-transform: uppercase;
-  background: red;
+  background: lightsteelblue;
   color: #FFF;
-  font-weight: 700;
+  font-size: 18px;
+
 }
 
 .category-nav .category-header>i {
@@ -506,18 +515,18 @@ background-size: 100%; /* Современные браузеры */
 
 .category-nav .category-list {
   position: absolute;
-  width: 270px;
-  background-color: MidnightBlue ;
-  border-left: 1px solid #DADADA;
-  border-right: 1px solid #DADADA;
-  border-bottom: 1px solid #DADADA;
+  width: 320px;
+  background-color: lightgray ;
+  border-left: 1px solid lightgray;
+  border-right: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
   z-index: 50;
   -webkit-transition: 0.3s all;
   transition: 0.3s all;
   height: 490px;
 }
 
-.category-nav.show-on-click .category-list {
+.category-nav .show-on-click .category-list {
   opacity: 0;
   visibility: hidden;
   -webkit-transform: translate(0px, 15px);
@@ -525,7 +534,7 @@ background-size: 100%; /* Современные браузеры */
   transform: translate(0px, 15px);
 }
 
-.category-nav.show-on-click .category-list.open {
+.category-nav .show-on-click .category-list.open {
   opacity: 1;
   visibility: visible;
   -webkit-transform: translate(0px, 0px);
@@ -545,14 +554,15 @@ background-size: 100%; /* Современные браузеры */
 .category-nav .category-list>li>a {
      display: block;
     padding: 7px;
-    color: white;
+    color: midnightblue;
     text-transform: uppercase;
-    background-color: MidnightBlue ;
+    background-color: lightgray ;
 }
 
 .category-nav .category-list>li>a:hover, .category-nav .category-list>li>a:focus, .category-nav .category-list>li.dropdown.open>a {
   color: red;
   cursor: pointer;
+  background-color: darkgray ;
 }
 
 /*----------------------------*\
@@ -695,7 +705,76 @@ background-size: 100%; /* Современные браузеры */
   -ms-transform: translate(0px, 0px);
   transform: translate(0px, 0px);
 }
+html,
+body {
+  overflow: hidden;
+}
 
+div.productCarousel {
+  height: 100vh;
+  margin: 0 auto;
+  position: absolute;
+  overflow: hidden;
+  transition: all 1000ms cubic-bezier(0.19, 1, 0.22, 1) 0ms;
+  vertical-align: middle;
+}
+
+div.productInCarousel {
+  width: 100vw;
+  height: 100vh;
+  display: inline-block;
+  text-align: center;
+  transition: all 1000ms cubic-bezier(0.19, 1, 0.22, 1) 0ms;
+}
+
+.productInCarousel > img {
+  display: block;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div.previousProduct {
+  position: fixed;
+  bottom: 0; left: 0;
+  cursor: pointer;
+  z-index: 1;
+}
+
+div.nextProduct {
+  position: fixed;
+  bottom: 0; right: 0;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.productPreview {
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  line-height: .7;
+  height: 200px;
+  width: 200px;
+  max-width: 45%;
+}
+
+#previousProductPreview:hover,
+#nextProductPreview:hover {
+  cursor: pointer;
+}
+
+#previousProductPreview > img,
+#nextProductPreview > img {
+  max-width: 100%;
+}
+
+#nextProductPreview {
+  right: 10px;
+}
+
+#previousProductPreview {
+  left: 10px;
+}
 /*-- Side Dropdown --*/
 
 .dropdown.side-dropdown>.custom-menu {
@@ -874,7 +953,7 @@ background-size: 100%; /* Современные браузеры */
 ===========================================================*/
 
 #home .home-wrap {
-  margin-left: 270px;
+  margin-left: 320px;
 }
 
 #home-slick .banner {
@@ -1758,7 +1837,11 @@ background-size: 100%; /* Современные браузеры */
 /*=========================================================
 	12 -> RESPONSIVE
 ===========================================================*/
-
+@media (min-width: 1600px) {
+  .container {
+    width: 1550px;
+  }
+}
 @media only screen and (max-width: 991px) {
   #home .home-wrap {
     margin-left: 0px;
