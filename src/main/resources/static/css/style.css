@@ -1862,8 +1862,8 @@ div.nextProduct {
 
 @media only screen and (max-width: 480px) {
   .header-logo .logo>img {
-    width: 100%;
-    max-height: 50px;
+      width: auto;
+      max-height: 40px;
   }
   [class*='col-xs'] {
     width: 100%;
@@ -1872,9 +1872,9 @@ div.nextProduct {
     max-width: 300px;
   }
   .header-search>form .search-input {
-    padding-left: 15px;
-    padding-right: 15px;
-    width: 160px;
+      padding-left: 10px;
+      padding-right: 10px;
+      width: 130px;
   }
 
   .header-search>form .search-categories {
